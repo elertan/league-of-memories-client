@@ -16,7 +16,7 @@
   "build": {
     "appId": "com.leagueofmemories.client",
     "icon": "./assets/img/icon.png",
-    "productName": "SkinKK",
+    "productName": "League of Memories",
     "copyright": "Copyright © 2018 League of Memories",
     "files": [
       "./**/*",
