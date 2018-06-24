@@ -36,7 +36,7 @@ const styles = {
   } as React.CSSProperties,
   backgroundContainer: {
     // backgroundImage: 'url(./assets/img/background.png)',
-    filter: 'blur(10px)',
+    filter: 'blur(7px)',
     // We need the transform to remove the halo effect with blur(). (White glowing effect at the sides)
     transform: 'scale(1.1)',
     backgroundSize: 'cover',

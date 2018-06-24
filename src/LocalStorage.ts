@@ -1,6 +1,6 @@
 class Data {
   public isFirstLaunch: boolean = true;
-  public backgroundOpacity: number = 0.5;
+  public backgroundOpacity: number = 0.95;
 }
 
 type ManipulateAndSaveFunc = (data: Data) => Data;

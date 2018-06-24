@@ -4,6 +4,7 @@ import colors from '../../colors';
 interface IProps {
   style?: React.CSSProperties,
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 interface IState {
@@ -36,13 +37,15 @@ class Button extends React.Component<IProps, IState> {
 
   public render() {
     return (
-      <div
-        style={Object.assign({}, this.getButtonStyle(), this.props.style || {})}
-        onClickCapture={this.props.onClick}
-        onMouseEnter={() => this.setState({hovered: true})}
-        onMouseLeave={() => this.setState({hovered: false})}
-      >
-        {this.props.children}
+      <div>
+        <div
+          style={Object.assign({}, this.getButtonStyle(), this.props.style || {})}
+          onClickCapture={() => !this.props.disabled && this.props.onClick()}
+          onMouseEnter={() => this.setState({hovered: true})}
+          onMouseLeave={() => this.setState({hovered: false})}
+        >
+          {this.props.children}
+        </div>
       </div>
     );
   }

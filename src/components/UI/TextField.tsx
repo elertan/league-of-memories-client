@@ -8,6 +8,7 @@ interface IProps {
   rightInputAdornment?: JSX.Element;
   onChange?: (value: string) => void;
   password?: boolean;
+  disabled?: boolean;
 }
 
 const styles = {
@@ -37,6 +38,7 @@ class TextField extends React.Component<IProps, {}> {
       <div style={styles.container}>
         {this.props.leftInputAdornment}
         <input
+          disabled={this.props.disabled || false}
           style={styles.input}
           placeholder={this.props.placeholder}
           value={this.props.value}

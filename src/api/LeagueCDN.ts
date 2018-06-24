@@ -15,7 +15,8 @@ export default class LeagueCDN {
 
   public static getDefaultBackgroundImage() {
     // tslint:disable-next-line:max-line-length
-    return 'https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-champion-aatrox/en_GB/5f609ee4af95b65c17860c30661652a1c0a530bd/assets/img/content/wallpaper/base-splash.jpg';
+    // return 'https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-champion-aatrox/en_GB/5f609ee4af95b65c17860c30661652a1c0a530bd/assets/img/content/wallpaper/base-splash.jpg';
+    return './assets/img/default-background.jpg';
   }
 
   public static getChampionSplashUrl(championKey: string, skinIndex: number = 0) {

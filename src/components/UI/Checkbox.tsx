@@ -3,6 +3,7 @@ import * as React from 'react';
 interface IProps {
   checked?: boolean;
   onChanged?: (checked: boolean) => void;
+  disabled?: boolean;
 }
 
 class Checkbox extends React.Component<IProps, {}> {
@@ -10,6 +11,7 @@ class Checkbox extends React.Component<IProps, {}> {
     return (
       <div>
         <input
+          disabled={this.props.disabled || false}
           className="Checkbox"
           type="checkbox"
           checked={this.props.checked || false}
