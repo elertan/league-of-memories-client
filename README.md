@@ -1,5 +1,7 @@
 # League of Memories Client
 
+![https://i.imgur.com/LawIHbV.png](https://i.imgur.com/LawIHbV.png)
+
 ## Development
 
 To start developing this application, you will need to have `node` installed on your machine.
