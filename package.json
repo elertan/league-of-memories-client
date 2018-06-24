@@ -1,0 +1,72 @@
+{
+  "name": "skinkk-client",
+  "version": "0.0.1",
+  "description": "SkinKK Client Application",
+  "main": "app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run compile && electron ./app/main.js --remote-debugging-port=9992",
+    "dist": "npm run compile && build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elertan/skinkk-client.git"
+  },
+  "author": "Elertan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elertan/skinkk-client/issues"
+  },
+  "homepage": "https://github.com/elertan/skinkk-client#readme",
+  "build": {
+    "appId": "com.skinkk.client",
+    "icon": "./assets/img/icon.png",
+    "productName": "SkinKK",
+    "copyright": "Copyright © 2018 SkinKK Team",
+    "files": [
+      "./**/*",
+      "./app/**/*",
+      "./assets/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "MSI",
+      "icon": "./assets/img/icon.png"
+    }
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/react-modal": "^3.1.2",
+    "@types/react-redux": "^6.0.2",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/react-router-redux": "^5.0.15",
+    "devtron": "^1.4.0",
+    "electron": "^2.0.2",
+    "electron-builder": "^20.15.1",
+    "electron-hot-loader": "^0.8.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "dependencies": {
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "axios": "^0.18.0",
+    "electron-store": "^2.0.0",
+    "express": "^4.16.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-modal": "^3.4.5",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-tippy": "^1.2.2",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  }
+}
