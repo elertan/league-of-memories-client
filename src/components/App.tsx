@@ -15,10 +15,10 @@ import {
 } from '../store';
 import IDispatchFunc from "../store/IDispatchFunc";
 import ohUhModalCreator from "./ModalCreators/uhOhModal";
-import welcomeModalCreator from "./ModalCreators/welcomeModal";
 import ModalManager, { Modal } from "./ModalManager";
 import Titlebar from "./Titlebar";
 import Spinner from "./UI/Spinner";
+import eulaModalCreator from "./ModalCreators/eulaModal";
 
 const styles = {
   container: {
@@ -94,7 +94,7 @@ class App extends React.Component<IProps, IState> {
     );
     if (LocalStorage.instance.data!.isFirstLaunch) {
       // Show dialog to start local server
-      this.props.modalStoreActions.openModal(welcomeModalCreator);
+      // this.props.modalStoreActions.openModal(eulaModalCreator);
       LocalStorage.instance.manipulateAndSave((data) => {
         data.isFirstLaunch = false;
         return data;
