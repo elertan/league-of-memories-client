@@ -26,16 +26,16 @@ const styles = {
 };
 
 const welcomeModalCreator: ModalCreatorFunc = (close) => ({
-  title: <p style={styles.title}>Welcome to SkinKK</p>,
+  title: <p style={styles.title}>Welcome to League of Memories</p>,
   body:
   <div>
     <p style={{marginBottom: 10}}>
       Because this is your first launch,
-      windows will prompt you for what network access you want to give SkinKK access to.
+      windows will prompt you for what network access you want to give League of Memories access to.
     </p>
     <p style={{marginBottom: 10}}>
       You can decline the prompt,
-      as it isn't required for SkinKK to work. We are only using the loopback address on your computer.
+      as it isn't required for League of Memories to work. We are only using the loopback address on your computer.
     </p>
     <p style={{marginBottom: 10}}>If you have any features or suggestions, please join our Discord Server!</p>
   </div>,

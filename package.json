@@ -1,7 +1,7 @@
 {
-  "name": "skinkk-client",
+  "name": "league-of-memories-client",
   "version": "0.0.1",
-  "description": "SkinKK Client Application",
+  "description": "League of Memories client app",
   "main": "app/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,21 +11,13 @@
     "start": "npm run compile && electron ./app/main.js --remote-debugging-port=9992",
     "dist": "npm run compile && build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elertan/skinkk-client.git"
-  },
   "author": "Elertan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/elertan/skinkk-client/issues"
-  },
-  "homepage": "https://github.com/elertan/skinkk-client#readme",
   "build": {
-    "appId": "com.skinkk.client",
+    "appId": "com.leagueofmemories.client",
     "icon": "./assets/img/icon.png",
     "productName": "SkinKK",
-    "copyright": "Copyright © 2018 SkinKK Team",
+    "copyright": "Copyright © 2018 League of Memories",
     "files": [
       "./**/*",
       "./app/**/*",
