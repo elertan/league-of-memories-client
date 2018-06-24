@@ -12,10 +12,9 @@ function createWindow() {
     center: true,
     frame: false,
     height: 650,
-    icon: path.join(__dirname, "../assets/img/icon.png"),
     minHeight: 500,
     minWidth: 550,
-    title: "SkinKK",
+    title: "League of Memories",
     width: 1000,
     show: false
   });
