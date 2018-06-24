@@ -5,4 +5,5 @@ export default {
   lightText: '#d3c189',
   darkText: '#BBB',
   whiteText: '#EEE',
+  blue: 'rgb(20, 119, 135)'
 };

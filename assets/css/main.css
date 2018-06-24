@@ -56,3 +56,18 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer; /* Cursor on hover */
     border-radius: 50px;
 }
+
+.Checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(9, 17, 28);
+    padding: 7px;
+    display: inline-block;
+    border: 1px solid #6d522a;
+}
+
+.Checkbox:checked {
+    background-image: url(../img/checkbox-check.png);
+    background-position: center;
+    background-size: contain;
+}

@@ -13,9 +13,14 @@ export interface ILoginFailState {
   loginFail?: ApiError;
 }
 
+export interface IState {
+  user?: any;
+}
+
 type GlobalState =
   ISetBackgroundImageState &
   ILoginSuccessState &
-  ILoginFailState;
+  ILoginFailState &
+  IState;
 
 export default GlobalState;

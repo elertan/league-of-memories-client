@@ -13,6 +13,10 @@ const styles = {
     justifyContent: "center",
     width: "100%",
     background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0))',
+    zIndex: 999999,
+    position: 'absolute',
+    top: 0,
+    left: 0,
   } as React.CSSProperties,
   logoContainer: {
     paddingLeft: 15,
@@ -68,7 +72,7 @@ class Titlebar extends React.Component<IProps, IState> {
       <div style={styles.container}>
         {/* Logo */}
         <div className="drag-region" style={styles.logoContainer}>
-          <p style={styles.logo}>SkinKK</p>
+          <p style={styles.logo}>League of Memories</p>
         </div>
         {/* NavBar */}
         <div style={styles.navBarContainer}>

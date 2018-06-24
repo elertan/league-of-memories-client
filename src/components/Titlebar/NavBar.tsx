@@ -42,7 +42,7 @@ interface IProps extends IStoreProps, IStoreActionProps {
 }
 
 const routes = [
-  { route: '/', title: 'HOME' },
+  { route: '/home', title: 'HOME' },
   { route: '/browse', title: 'BROWSE' },
   { route: '/settings', title: 'SETTINGS' },
 ];
@@ -55,6 +55,7 @@ class NavBar extends React.Component<IProps, {}> {
   public render() {
     return (
       <div style={styles.container}>
+        {this.props.globalStore.user &&
         <ul style={styles.navBarList}>
           {routes.map((r, i) =>
             <li
@@ -66,6 +67,7 @@ class NavBar extends React.Component<IProps, {}> {
             </li>,
           )}
         </ul>
+        }
       </div>
     );
   }

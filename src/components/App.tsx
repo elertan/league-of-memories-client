@@ -50,6 +50,7 @@ const styles = {
   contentContainer: {
     position: 'relative',
     bottom: '200vh',
+    height: '100%',
   } as React.CSSProperties,
   routeContainer: {
     width: '100%',
@@ -118,10 +119,10 @@ class App extends React.Component<IProps, IState> {
         </div>
         <div style={this.getBackgroundContainerStyle()} />
         <div style={styles.contentContainer}>
-          <Titlebar routeName={this.props.location.pathname} />
           <div style={styles.routeContainer}>
             {routes}
           </div>
+          <Titlebar routeName={this.props.location.pathname} />
         </div>
         <ModalManager modals={this.props.modalStore.modals} />
       </div>

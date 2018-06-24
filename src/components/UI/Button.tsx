@@ -2,6 +2,7 @@ import * as React from 'react';
 import colors from '../../colors';
 
 interface IProps {
+  style?: React.CSSProperties,
   onClick?: () => void;
 }
 
@@ -18,7 +19,7 @@ const styles = {
     border: `2px solid ${colors.leagueLight}`,
     fontSize: 14,
     cursor: 'hand',
-    color: colors.lightText,
+    color: 'rgb(230, 230, 230)',
     background: 'rgb(20,20,20)',
     fontFamily: 'LeagueFont',
   } as React.CSSProperties,
@@ -36,7 +37,7 @@ class Button extends React.Component<IProps, IState> {
   public render() {
     return (
       <div
-        style={this.getButtonStyle()}
+        style={Object.assign({}, this.getButtonStyle(), this.props.style || {})}
         onClickCapture={this.props.onClick}
         onMouseEnter={() => this.setState({hovered: true})}
         onMouseLeave={() => this.setState({hovered: false})}
