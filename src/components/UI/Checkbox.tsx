@@ -12,6 +12,8 @@ class Checkbox extends React.Component<IProps, {}> {
         <input
           className="Checkbox"
           type="checkbox"
+          checked={this.props.checked || false}
+          onChange={(ev) => this.props.onChanged && this.props.onChanged(ev.target.checked)}
         />
       </div>
     );
