@@ -89,13 +89,13 @@ class Titlebar extends React.Component<IProps, IState> {
               onMouseEnter={() => this.setState({minimizeButtonHovered: true})}
               onMouseLeave={() => this.setState({minimizeButtonHovered: false})}
             />
-            <i
+            {/* <i
               className="far fa-window-maximize"
               style={this.getMaximizeButtonStyle()}
               onClick={() => ipcRenderer.send(IPCEvents.titlebar_maximize)}
               onMouseEnter={() => this.setState({maximizeButtonHovered: true})}
               onMouseLeave={() => this.setState({maximizeButtonHovered: false})}
-            />
+            /> */}
             <i
               className="fas fa-window-close"
               style={this.getCloseButtonStyle()}
