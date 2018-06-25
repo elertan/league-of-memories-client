@@ -4,6 +4,12 @@ import Button from '../UI/Button';
 import colors from '../../colors';
 import Checkbox from '../UI/Checkbox';
 import Spinner from '../UI/Spinner';
+import LocalStorage from '../../LocalStorage';
+import { connect } from 'react-redux';
+import { IAppState, ModalStore } from '../../store';
+import IDispatchFunc from '../../store/IDispatchFunc';
+import { Action } from 'redux';
+import { Modal } from '../ModalManager';
 
 const styles = {
   container: {
@@ -63,6 +69,16 @@ const styles = {
   } as React.CSSProperties,
 };
 
+interface IReduxStore {
+  modalStore: ModalStore.State;
+}
+
+interface IReduxStoreActions {
+  modalStoreActions: ModalStore.IActionCreators;
+}
+
+interface IProps extends IReduxStore, IReduxStoreActions {}
+
 interface IState {
   rememberMe: boolean;
   username: string;
@@ -71,14 +87,14 @@ interface IState {
   busy: boolean;
 }
 
-class LoginPage extends React.Component<{}, IState> {
+class LoginPage extends React.Component<IProps, IState> {
   private player: HTMLVideoElement;
 
   public state = {
     rememberMe: true,
-    username: '',
+    username: LocalStorage.instance.data!.username,
     password: '',
-    disableLoginMusic: false,
+    disableLoginMusic: LocalStorage.instance.data!.loginMusicDisabled,
     busy: false
   };
 
@@ -102,6 +118,7 @@ class LoginPage extends React.Component<{}, IState> {
 
             this.player = ref;
             this.player.volume = 0.2;
+            this.player.muted = this.state.disableLoginMusic;
           }}>
             <source src="./assets/video/login.mp4" />
           </video>
@@ -113,11 +130,19 @@ class LoginPage extends React.Component<{}, IState> {
             flexDirection: 'row',
             fontSize: 12,
             color: '#AAA',
-            alignItems: 'center'
+            alignItems: 'center',
+            textShadow: '2px 2px 2px #000',
           }}>
             <Checkbox
               checked={this.state.disableLoginMusic}
-              onChanged={(disableLoginMusic) => this.setState({disableLoginMusic})}
+              onChanged={(disableLoginMusic) => { 
+                this.setState({disableLoginMusic});
+                LocalStorage.instance.manipulateAndSave(data => {
+                  data.loginMusicDisabled = disableLoginMusic;
+                  return data;
+                });
+                this.player.muted = disableLoginMusic;
+              }}
             />
             <p style={{marginLeft: 5}}>Disable Login Music</p>
           </div>
@@ -182,7 +207,24 @@ class LoginPage extends React.Component<{}, IState> {
 
   private handleLogin = () => {
     this.setState({busy: true});
+    setTimeout(() => {
+      this.props.modalStoreActions.openModal((close) => ({
+        title: 'Login failed',
+        body: 'Your username or password is incorrect.',
+        footer: <div>
+          <Button onClick={close}><p>OK</p></Button>
+        </div>
+      } as Modal));
+      this.setState({busy: false});
+    }, 1500);
   }
 }
 
-export default LoginPage;
+export default connect(
+  (state: IAppState) => ({
+    modalStore: state.modal
+  } as IReduxStore),
+  (dispatch: IDispatchFunc<Action>) => ({
+    modalStoreActions: ModalStore.actionCreators(dispatch)
+  } as IReduxStoreActions)
+)(LoginPage);

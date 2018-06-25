@@ -1,6 +1,8 @@
 class Data {
   public isFirstLaunch: boolean = true;
   public backgroundOpacity: number = 0.95;
+  public loginMusicDisabled: boolean = false;
+  public username: string = '';
 }
 
 type ManipulateAndSaveFunc = (data: Data) => Data;
