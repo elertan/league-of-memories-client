@@ -26,7 +26,22 @@ interface IState {}
 const styles = {
   container: {
     height: 'calc(100vh - 40px)',
-    overflowY: 'auto',
+    overflowY: 'hidden',
+  } as React.CSSProperties,
+  contentContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  } as React.CSSProperties,
+  filterContainer: {
+    width: 275,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  } as React.CSSProperties,
+  gridContainer: {
+    flex: 1,
+    height: 'calc(100vh - 75px)',
+    overflow: 'auto'
   } as React.CSSProperties,
 };
 
@@ -47,10 +62,17 @@ class BrowsePage extends React.Component<IProps, IState> {
         <Spinner />
         }
         <SafeArea>
-          <ChampionGrid
-            champions={this.props.championsStore.getSuccess || []}
-            onChampionClick={(champion: Champion) => this.props.push(`/browse/${champion.key}`)}
-          />
+          <div style={styles.contentContainer}>
+            <div style={styles.filterContainer}>
+              <p>Filters etc</p>
+            </div>
+            <div style={styles.gridContainer}>
+              <ChampionGrid
+                champions={this.props.championsStore.getSuccess || []}
+                onChampionClick={(champion: Champion) => this.props.push(`/browse/${champion.key}`)}
+              />
+            </div>
+          </div>
         </SafeArea>
       </div>
     );

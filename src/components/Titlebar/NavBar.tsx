@@ -57,6 +57,21 @@ class NavBar extends React.Component<IProps, {}> {
       <div style={styles.container}>
         {this.props.routeName !== '/' &&
         <ul style={styles.navBarList}>
+          <li style={{
+            background: 'linear-gradient(to bottom, #8e0e00, #1f1c18)',
+            padding: 5,
+            paddingLeft: 15,
+            paddingRight: 15,
+            border: '1px solid #000',
+            borderRadius: 5,
+            display: 'inline',
+            color: colors.whiteText,
+            fontFamily: 'LeagueFont',
+            fontSize: 16,
+            marginRight: 15
+          }}>
+            PLAY
+          </li>
           {routes.map((r, i) =>
             <li
               key={i}
