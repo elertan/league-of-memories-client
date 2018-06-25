@@ -19,6 +19,7 @@ import ModalManager, { Modal } from "./ModalManager";
 import Titlebar from "./Titlebar";
 import Spinner from "./UI/Spinner";
 import eulaModalCreator from "./ModalCreators/eulaModal";
+import BottomBar from "./BottomBar";
 
 const styles = {
   container: {
@@ -36,9 +37,9 @@ const styles = {
   } as React.CSSProperties,
   backgroundContainer: {
     // backgroundImage: 'url(./assets/img/background.png)',
-    filter: 'blur(7px)',
+    // filter: 'blur(3px)',
     // We need the transform to remove the halo effect with blur(). (White glowing effect at the sides)
-    transform: 'scale(1.1)',
+    // transform: 'scale(1.1)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -123,6 +124,15 @@ class App extends React.Component<IProps, IState> {
             {routes}
           </div>
           <Titlebar routeName={this.props.location.pathname} />
+          {this.props.location.pathname !== '/' &&
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+          }}>
+            <BottomBar />
+          </div>
+          }
         </div>
         <ModalManager modals={this.props.modalStore.modals} />
       </div>

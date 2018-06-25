@@ -55,7 +55,7 @@ class NavBar extends React.Component<IProps, {}> {
   public render() {
     return (
       <div style={styles.container}>
-        {this.props.globalStore.user &&
+        {this.props.routeName !== '/' &&
         <ul style={styles.navBarList}>
           {routes.map((r, i) =>
             <li

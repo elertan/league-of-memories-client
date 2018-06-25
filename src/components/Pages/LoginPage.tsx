@@ -10,6 +10,7 @@ import { IAppState, ModalStore } from '../../store';
 import IDispatchFunc from '../../store/IDispatchFunc';
 import { Action } from 'redux';
 import { Modal } from '../ModalManager';
+import { push } from 'react-router-redux';
 
 const styles = {
   container: {
@@ -75,6 +76,7 @@ interface IReduxStore {
 
 interface IReduxStoreActions {
   modalStoreActions: ModalStore.IActionCreators;
+  pushRoute: (routeName: string) => void;
 }
 
 interface IProps extends IReduxStore, IReduxStoreActions {}
@@ -189,18 +191,6 @@ class LoginPage extends React.Component<IProps, IState> {
             }
           </div>
         </div>
-        {/* <audio
-          ref={(el) => { 
-            if (!el) return;
-
-            this.audio = el; 
-            el.volume = 0.2; 
-          }}
-          autoPlay
-          loop
-        >
-          <source src="./assets/audio/login.mp3" />
-        </audio> */}
       </div>
     );
   }
@@ -216,6 +206,7 @@ class LoginPage extends React.Component<IProps, IState> {
         </div>
       } as Modal));
       this.setState({busy: false});
+      this.props.pushRoute('/home');
     }, 1500);
   }
 }
@@ -225,6 +216,7 @@ export default connect(
     modalStore: state.modal
   } as IReduxStore),
   (dispatch: IDispatchFunc<Action>) => ({
-    modalStoreActions: ModalStore.actionCreators(dispatch)
+    modalStoreActions: ModalStore.actionCreators(dispatch),
+    pushRoute: (routeName: string) => dispatch(push(routeName))
   } as IReduxStoreActions)
 )(LoginPage);

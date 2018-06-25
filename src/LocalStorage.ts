@@ -1,6 +1,6 @@
 class Data {
   public isFirstLaunch: boolean = true;
-  public backgroundOpacity: number = 0.95;
+  public backgroundOpacity: number = 0.3;
   public loginMusicDisabled: boolean = false;
   public username: string = '';
 }

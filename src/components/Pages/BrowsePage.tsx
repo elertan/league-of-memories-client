@@ -8,6 +8,7 @@ import { ChampionsStore, IAppState } from '../../store';
 import IDispatchFunc from '../../store/IDispatchFunc';
 import ChampionGrid from '../League/ChampionGrid';
 import Spinner from '../UI/Spinner';
+import SafeArea from '../SafeArea';
 
 interface IStoreProps {
   championsStore: ChampionsStore.State;
@@ -45,10 +46,12 @@ class BrowsePage extends React.Component<IProps, IState> {
         {!this.props.championsStore.getSuccess &&
         <Spinner />
         }
-        <ChampionGrid
-          champions={this.props.championsStore.getSuccess || []}
-          onChampionClick={(champion: Champion) => this.props.push(`/browse/${champion.key}`)}
-        />
+        <SafeArea>
+          <ChampionGrid
+            champions={this.props.championsStore.getSuccess || []}
+            onChampionClick={(champion: Champion) => this.props.push(`/browse/${champion.key}`)}
+          />
+        </SafeArea>
       </div>
     );
   }
