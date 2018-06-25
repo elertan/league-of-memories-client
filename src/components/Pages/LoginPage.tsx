@@ -198,13 +198,6 @@ class LoginPage extends React.Component<IProps, IState> {
   private handleLogin = () => {
     this.setState({busy: true});
     setTimeout(() => {
-      this.props.modalStoreActions.openModal((close) => ({
-        title: 'Login failed',
-        body: 'Your username or password is incorrect.',
-        footer: <div>
-          <Button onClick={close}><p>OK</p></Button>
-        </div>
-      } as Modal));
       this.setState({busy: false});
       this.props.pushRoute('/home');
     }, 1500);
